@@ -36,6 +36,9 @@ func run() error {
 
 	router := gin.Default()
 
+	// https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies
+	router.SetTrustedProxies(nil)
+
 	router.Use(cors.Default())
 
 	storage := repository.NewStorage(client)
